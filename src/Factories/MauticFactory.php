@@ -1,6 +1,7 @@
 <?php namespace Princealikhan\Mautic\Factories;
 
 use Mautic\Auth\ApiAuth;
+use Princealikhan\Mautic\Models\MauticConsumer;
 
 class MauticFactory
 {
@@ -60,6 +61,7 @@ class MauticFactory
         if ($auth->validateAccessToken()) {
             if ($auth->accessTokenUpdated()) {
                 $accessTokenData = $auth->getAccessTokenData();
+                MauticConsumer::create($accessTokenData);
                 dd($accessTokenData);
                 //store access token data however you want
             }

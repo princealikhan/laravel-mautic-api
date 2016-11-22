@@ -16,7 +16,6 @@ class MauticServiceProvider extends ServiceProvider {
         $this->publishes([
             __DIR__.'/config/mautic.php' => base_path('config/mautic.php'),
             __DIR__ . '/migrations' => $this->app->databasePath() . '/migrations'
-
         ]);
 	}
 
