@@ -17,7 +17,7 @@ class MauticServiceProvider extends ServiceProvider {
             __DIR__.'/config/mautic.php' => base_path('config/mautic.php'),
             __DIR__ . '/migrations' => $this->app->databasePath() . '/migrations'
         ]);
-	}
+    }
 
     /**
      * Register the service provider.
@@ -28,6 +28,7 @@ class MauticServiceProvider extends ServiceProvider {
     {
         $this->registerFactory($this->app);
         $this->registerManager($this->app);
+        $this->registerRoutes($this->app);
     }
 
     /**
@@ -64,6 +65,18 @@ class MauticServiceProvider extends ServiceProvider {
 
         $app->alias('mautic', 'Princealikhan\Mautic\Mautic');
     }
+
+    /**
+     * Get the routes services provided by the provider.
+     *
+     * @return routes
+     */
+    protected function registerRoutes(Application $app) {
+        $app['router']->group(['namespace' => 'Princealikhan\Mautic\Http\Controllers', "prefix" => "mautic"], function () {
+            require __DIR__.'/Http/routes.php';
+        });
+    }
+
 
     /**
      * Get the services provided by the provider.
