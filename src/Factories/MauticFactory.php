@@ -168,8 +168,8 @@ class MauticFactory
                     'refresh_token' => $refreshToken,
                     'grant_type'    => 'refresh_token'
                 ]));
-            $responseBodyAsString = $response->getBody()->getContents();
-            $responseBodyAsString = json_decode($responseBodyAsString);
+            $responseBodyAsString = $response->getBody();
+            $responseBodyAsString = json_decode($responseBodyAsString,true);
             return MauticConsumer::create($responseBodyAsString);
         }
         catch (ClientException $e) {
