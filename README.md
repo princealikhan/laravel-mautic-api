@@ -37,6 +37,8 @@ Then, register class alias by adding an entry in aliases section
 Finally, from the command line run `php artisan vendor:publish` to publish the default configuration file. 
 This will publish a configuration file name `mautic.php` ,`consumer migration` and `consumer model`.
 
+Run `php artisan migrate` migration command to create consumer table in your database. 
+
 ## Configuration
 You need to add your `client id`, `client secret` and  `callback url`  in `mautic.php` file that is found in your applications `config` directory.
 
