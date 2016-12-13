@@ -170,7 +170,13 @@ class MauticFactory
                 ]));
             $responseBodyAsString = $response->getBody();
             $responseBodyAsString = json_decode($responseBodyAsString,true);
-            return MauticConsumer::create($responseBodyAsString);
+
+            return MauticConsumer::create([
+                'access_token'  => $responseBodyAsString['access_token'],
+                'expires'       => time() + $responseBodyAsString['expires_in'],
+                'token_type'    => $responseBodyAsString['token_type'],
+                'refresh_token' => $responseBodyAsString['refresh_token']
+            ]);
         }
         catch (ClientException $e) {
            return $exceptionResponse = $e->getResponse();
