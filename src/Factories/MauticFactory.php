@@ -1,8 +1,8 @@
-<?php namespace Princealikhan\Mautic\Factories;
+<?php namespace Vladko\Mautic\Factories;
 
 use Mautic\Auth\ApiAuth;
 use Mautic\Auth\OAuthClient;
-use Princealikhan\Mautic\Models\MauticConsumer;
+use Vladko\Mautic\Models\MauticConsumer;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 

@@ -1,17 +1,9 @@
-<?php namespace Princealikhan\Mautic\Http\Controllers;
+<?php namespace Vladko\Mautic\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Princealikhan\Mautic\Models\MauticConsumer;
-use Princealikhan\Mautic\Facades\Mautic;
+use Vladko\Mautic\Models\MauticConsumer;
+use Vladko\Mautic\Facades\Mautic;
 
-
-
-    /**
-     * Created by PhpStorm.
-     * User: prince
-     * Date: 26/11/16
-     * Time: 4:12 PM
-     */
     class MauticController extends Controller
     {
 
@@ -23,12 +15,10 @@ use Princealikhan\Mautic\Facades\Mautic;
 
             $consumer = MauticConsumer::count();
 
-            if($consumer == 0){
+            if ($consumer == 0) {
                 Mautic::connection('main');
-            }else{
+            } else {
                 echo '<h1>Mautic App Already Register</h1>';
             }
-
         }
-
     }

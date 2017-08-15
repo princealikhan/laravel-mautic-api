@@ -1,13 +1,7 @@
-<?php namespace Princealikhan\Mautic\Models;
+<?php namespace Vladko\Mautic\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Created by PhpStorm.
- * User: prince
- * Date: 23/11/16
- * Time: 1:15 AM
- */
 class MauticConsumer extends Model
 {
     /**

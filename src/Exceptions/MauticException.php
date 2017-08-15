@@ -1,4 +1,4 @@
-<?php namespace Princealikhan\Mautic\Exceptions;
+<?php namespace Vladko\Mautic\Exceptions;
 /**
  * Invalid Request Exception
  *
@@ -6,5 +6,5 @@
  */
 class MauticException extends \Exception
 {
-	
+
 }

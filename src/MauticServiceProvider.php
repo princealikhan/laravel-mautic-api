@@ -1,4 +1,4 @@
-<?php namespace Princealikhan\Mautic;
+<?php namespace Vladko\Mautic;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
@@ -44,7 +44,7 @@ class MauticServiceProvider extends ServiceProvider {
             return new Factories\MauticFactory();
         });
 
-        $app->alias('mautic.factory', 'Princealikhan\Mautic\Factories\MauticFactory');
+        $app->alias('mautic.factory', 'Vladko\Mautic\Factories\MauticFactory');
     }
 
     /**
@@ -63,7 +63,7 @@ class MauticServiceProvider extends ServiceProvider {
             return new Mautic($config, $factory);
         });
 
-        $app->alias('mautic', 'Princealikhan\Mautic\Mautic');
+        $app->alias('mautic', 'Vladko\Mautic\Mautic');
     }
 
     /**
@@ -72,7 +72,7 @@ class MauticServiceProvider extends ServiceProvider {
      * @return routes
      */
     protected function registerRoutes(Application $app) {
-        $app['router']->group(['namespace' => 'Princealikhan\Mautic\Http\Controllers', "prefix" => "mautic"], function () {
+        $app['router']->group(['namespace' => 'Vladko\Mautic\Http\Controllers', "prefix" => "mautic"], function () {
             require __DIR__.'/Http/routes.php';
         });
     }
