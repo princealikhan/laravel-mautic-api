@@ -20,7 +20,7 @@
         },
     "autoload": {
         "psr-4": {
-            "Vladko\\Mautic\\": "src/"
+            "VladKo\\Mautic\\": "src/"
         }
     }
 }
