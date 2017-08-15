@@ -1,11 +1,11 @@
-<?php namespace Princealikhan\Mautic\Facades;
+<?php namespace Vladko\Mautic\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 class Mautic extends Facade {
 
-    protected static function getFacadeAccessor() 
+    protected static function getFacadeAccessor()
     {
-    	return 'mautic'; 
+    	return 'mautic';
  	}
 }

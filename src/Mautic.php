@@ -1,10 +1,10 @@
-<?php namespace Princealikhan\Mautic;
+<?php namespace Vladko\Mautic;
 
-use Princealikhan\Mautic\Factories\MauticFactory;
+use Vladko\Mautic\Factories\MauticFactory;
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
 use Mautic\Auth\OAuthClient;
-use Princealikhan\Mautic\Models\MauticConsumer;
+use Vladko\Mautic\Models\MauticConsumer;
 
 class Mautic extends AbstractManager
 {
@@ -60,7 +60,7 @@ class Mautic extends AbstractManager
      */
     public function getFactory()
     {
-        return $this->factory;  
+        return $this->factory;
     }
 
     /**

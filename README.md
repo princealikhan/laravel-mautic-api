@@ -15,7 +15,7 @@ then copy the Client ID and Client Secret to the application that will be using 
 
 First, you'll need to require the package with Composer:
 ```sh
-composer require princealikhan/laravel-mautic-api
+composer require Vladko/laravel-mautic-api
 ```
 Aftwards, run `composer update` from your command line.
 
@@ -24,20 +24,20 @@ Then, update `config/app.php` by adding an entry for the service provider.
 ```php
 'providers' => [
 	// ...
-	'Princealikhan\Mautic\MauticServiceProvider',
+	'Vladko\Mautic\MauticServiceProvider',
 ],
 ```
 Then, register class alias by adding an entry in aliases section
 ```php
 'aliases' => [
     //.....
-    'Mautic' => 'Princealikhan\Mautic\Facades\Mautic',
+    'Mautic' => 'Vladko\Mautic\Facades\Mautic',
 ],
 ```
-Finally, from the command line run `php artisan vendor:publish` to publish the default configuration file. 
+Finally, from the command line run `php artisan vendor:publish` to publish the default configuration file.
 This will publish a configuration file name `mautic.php` ,`consumer migration` and `consumer model`.
 
-Run `php artisan migrate` migration command to create consumer table in your database. 
+Run `php artisan migrate` migration command to create consumer table in your database.
 
 ## Configuration
 You need to add your `client id`, `client secret` and  `callback url`  in `mautic.php` file that is found in your applications `config` directory.
@@ -64,7 +64,7 @@ Create a new contact in mautic.
 $params = array(
     'firstname' => 'Prince',
     'lastname'=> 'Ali Khan',
-    'email' => 'princealikhan08@gmail.com'
+    'email' => 'Vladko08@gmail.com'
 );
 
 Mautic::request('POST','contacts/new',$param);
@@ -86,7 +86,7 @@ Mautic::request('Delete','contacts/1/delete');
 ##### And many more endpoints support by mautic.
 ### List of Endpoints supported by Mautic.
 
-#### Contacts 
+#### Contacts
 ```json
 [
     "contacts",
@@ -102,7 +102,7 @@ Mautic::request('Delete','contacts/1/delete');
 ]
 ```
 
-#### Assets 
+#### Assets
 ```json
 [
     "assets",
@@ -110,7 +110,7 @@ Mautic::request('Delete','contacts/1/delete');
 ]
 ```
 
-#### Campaigns 
+#### Campaigns
 ```json
 [
     "campaigns",
@@ -120,14 +120,14 @@ Mautic::request('Delete','contacts/1/delete');
 ]
 ```
 
-#### Data 
+#### Data
 ```json
 [
     "data",
     "data/{type}",
 ]
 ```
-#### Emails 
+#### Emails
 ```json
 [
     "emails",
@@ -137,21 +137,21 @@ Mautic::request('Delete','contacts/1/delete');
 ]
 ```
 
-#### Forms 
+#### Forms
 ```json
 [
     "forms",
     "forms/{id}"
 ]
 ```
-#### Pages 
+#### Pages
 ```json
 [
     "pages",
     "pages/{id}"
 ]
 ```
-#### Points 
+#### Points
 ```json
 [
     "points",
@@ -160,14 +160,14 @@ Mautic::request('Delete','contacts/1/delete');
     "points/triggers/{id}"
 ]
 ```
-#### Reports 
+#### Reports
 ```json
 [
     "reports",
     "reports/{id}"
 ]
 ```
-#### Segments 
+#### Segments
 ```json
 [
     "segments",
@@ -175,7 +175,7 @@ Mautic::request('Delete','contacts/1/delete');
     "segments/contact/{id}/remove/{leadId}"
 ]
 ```
-#### Users 
+#### Users
 ```json
 [
     "roles",
