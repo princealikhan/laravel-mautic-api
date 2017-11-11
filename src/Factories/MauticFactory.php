@@ -1,31 +1,16 @@
 <?php namespace Princealikhan\Mautic\Factories;
 
-<<<<<<< HEAD
-use Mautic\Auth\OAuthClient;
-=======
 use Mautic\Auth\ApiAuth;
 use Mautic\Auth\OAuthClient;
 use Princealikhan\Mautic\Models\MauticConsumer;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 
->>>>>>> origin/master
 
 class MauticFactory
 {
 
     /**
-<<<<<<< HEAD
-     * Make a new Mautic client.
-     *
-     * @param array $config
-     * @return \Mautic\Mautic
-     */
-    public function make(array $config)
-    {
-        $config = $this->getConfig($config);
-
-=======
      * Make a new Mautic url.
      *
      * @param string $endpoints
@@ -64,18 +49,13 @@ class MauticFactory
     {
 
         $config = $this->getConfig($config);
->>>>>>> origin/master
         return $this->getClient($config);
     }
 
     /**
      * Get the configuration data.
      *
-<<<<<<< HEAD
-     * @param string[] $config
-=======
      * @param array $config
->>>>>>> origin/master
      *
      * @throws \InvalidArgumentException
      *
@@ -91,29 +71,12 @@ class MauticFactory
             }
         }
 
-<<<<<<< HEAD
-        return array_only($config, ['client_id', 'client_secret', 'access_token']);
-=======
         return array_only($config, ['version','baseUrl', 'clientKey', 'clientSecret','callback']);
->>>>>>> origin/master
     }
 
     /**
      * Get the Mautic client.
      *
-<<<<<<< HEAD
-     * @param array $auth
-     *
-     * @return \Mautic\MauticApi
-     */
-    protected function getClient(array $auth)
-    {
-        return new OAuthClient(
-            $auth['public_key'],
-            $auth['secret_key'],
-            $auth['access_token']
-        );
-=======
      * @param array $setting
      *
      * @return \Mautic\MauticConsumer
@@ -218,6 +181,5 @@ class MauticFactory
         catch (ClientException $e) {
            return $exceptionResponse = $e->getResponse();
         }
->>>>>>> origin/master
     }
 }
