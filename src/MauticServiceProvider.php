@@ -15,8 +15,12 @@ class MauticServiceProvider extends ServiceProvider {
 		// Publish Configuration File to base Path.
         $this->publishes([
             __DIR__.'/config/mautic.php' => base_path('config/mautic.php'),
+<<<<<<< HEAD
+=======
+            __DIR__ . '/migrations' => $this->app->databasePath() . '/migrations'
+>>>>>>> origin/master
         ]);
-	}
+    }
 
     /**
      * Register the service provider.
@@ -27,6 +31,7 @@ class MauticServiceProvider extends ServiceProvider {
     {
         $this->registerFactory($this->app);
         $this->registerManager($this->app);
+<<<<<<< HEAD
     }
 
     /**
@@ -63,6 +68,57 @@ class MauticServiceProvider extends ServiceProvider {
 
         $app->alias('mautic', 'Princealikhan\Mautic\Mautic');
     }
+=======
+        $this->registerRoutes($this->app);
+    }
+
+    /**
+     * Register the factory class.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function registerFactory(Application $app)
+    {
+        $app->singleton('mautic.factory', function () {
+            return new Factories\MauticFactory();
+        });
+
+        $app->alias('mautic.factory', 'Princealikhan\Mautic\Factories\MauticFactory');
+    }
+
+    /**
+     * Register the manager class.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function registerManager(Application $app)
+    {
+        $app->singleton('mautic', function ($app) {
+            $config = $app['config'];
+            $factory = $app['mautic.factory'];
+
+            return new Mautic($config, $factory);
+        });
+
+        $app->alias('mautic', 'Princealikhan\Mautic\Mautic');
+    }
+
+    /**
+     * Get the routes services provided by the provider.
+     *
+     * @return routes
+     */
+    protected function registerRoutes(Application $app) {
+        $app['router']->group(['namespace' => 'Princealikhan\Mautic\Http\Controllers', "prefix" => "mautic"], function () {
+            require __DIR__.'/Http/routes.php';
+        });
+    }
+
+>>>>>>> origin/master
 
     /**
      * Get the services provided by the provider.

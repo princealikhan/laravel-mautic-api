@@ -3,10 +3,15 @@
 use Princealikhan\Mautic\Factories\MauticFactory;
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
+<<<<<<< HEAD
 use Mautic\Auth\ApiAuth;
 use Mautic\Auth\OAuthClient;
 
 
+=======
+use Mautic\Auth\OAuthClient;
+use Princealikhan\Mautic\Models\MauticConsumer;
+>>>>>>> origin/master
 
 class Mautic extends AbstractManager
 {
@@ -14,12 +19,20 @@ class Mautic extends AbstractManager
     /**
      * The factory instance.
      *
+<<<<<<< HEAD
      * @var \Vinkla\Vimeo\Factories\VimeoFactory
+=======
+     * @var \Mautic\Factory
+>>>>>>> origin/master
      */
     protected $factory;
 
     /**
+<<<<<<< HEAD
      * Create a new Vimeo manager instance.
+=======
+     * Create a new Mautic manager instance.
+>>>>>>> origin/master
      *
      * @param $config
      * @param $factory
@@ -58,13 +71,18 @@ class Mautic extends AbstractManager
     /**
      * Get the factory instance.
      *
+<<<<<<< HEAD
      * @return \Vinkla\Vimeo\Factories\VimeoFactory
+=======
+     * @return \Mautic\MauticFactory
+>>>>>>> origin/master
      */
     public function getFactory()
     {
         return $this->factory;  
     }
 
+<<<<<<< HEAD
     public function test()
     {
         session_name("oauthtester");
@@ -155,6 +173,31 @@ class Mautic extends AbstractManager
 //        dd($auth);
 //		return array('test' => 'asdf');;
 //	}
+=======
+    /**
+     * @param null $method
+     * @param null $endpoints
+     * @param null $body
+     * @return mixed
+     */
+    public function request($method=null, $endpoints=null, $body=null)
+    {
+
+        $consumer = MauticConsumer::whereNotNull('id')
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        $expirationStatus = $this->factory->checkExpirationTime($consumer->expires);
+
+        if($expirationStatus==true){
+            $newToken   =  $this->factory->refreshToken($consumer->refresh_token);
+            return $this->factory->callMautic($method,$endpoints,$body,$newToken->access_token);
+        } else{
+            return $this->factory->callMautic($method,$endpoints,$body,$consumer->access_token);
+        }
+    }
+
+>>>>>>> origin/master
 }
 
 

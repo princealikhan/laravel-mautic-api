@@ -47,6 +47,7 @@ return [
     'connections' => [
 
         'main' => [
+            'version'      => 'OAuth2',
             'baseUrl'      => env('MAUTIC_BASE_URL'),
             'clientKey'    => env('MAUTIC_PUBLIC_KEY'),
             'clientSecret' => env('MAUTIC_SECRET_KEY'),
