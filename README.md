@@ -67,7 +67,7 @@ $params = array(
     'email' => 'princealikhan08@gmail.com'
 );
 
-Mautic::request('POST','contacts/new',$param);
+Mautic::request('POST','contacts/new',$params);
 ```
 Get List of all contacts
 ```php
